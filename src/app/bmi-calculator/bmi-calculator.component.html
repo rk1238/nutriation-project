@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-12">
+    <h3>BMI Calculator</h3>
+    <div class="card mb-3 p-5">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Enter height</label>
+        <input
+          #height
+          type="text"
+          class="form-control"
+          placeholder="Enter height in m"
+        />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Enter weight</label>
+        <input
+          #weight
+          type="text"
+          class="form-control"
+          placeholder="Enter weight in KG"
+        />
+      </div>
+      <button
+        class="mt-2 btn btn-primary"
+        (click)="checkBMI(height.value, weight.value)"
+      >
+        Check BMI
+      </button>
+
+      <p class="mt-3 p-3 text-center">Your BMI score {{showbmidata.bmiscore}}</p>
+    </div>
+  </div>
+  <div class="col-12">
+      <div [ngClass]="showbmidata.colorclassname">
+          <div class="card-body text-center">
+              <h3 >{{showbmidata.Message}}</h3>
+          </div>
+      </div>
+  </div>
+</div>
