@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BmiCalculatorComponent } from './bmi-calculator/bmi-calculator.component';
 import { ItemSerchComponent } from './item-serch/item-serch.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +14,8 @@ import { ItemSerchComponent } from './item-serch/item-serch.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

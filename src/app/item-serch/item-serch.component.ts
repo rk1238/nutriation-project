@@ -1,25 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { DataAccessService } from '../data-access.service';
 
 @Component({
   selector: 'app-item-serch',
   templateUrl: './item-serch.component.html',
-  styleUrls: ['./item-serch.component.css']
+  styleUrls: ['./item-serch.component.css'],
 })
 export class ItemSerchComponent implements OnInit {
-
-  constructor() { }
-  dataavailable = false;
-  showingdata = {
-    name: '',
-    nutriants: {
-      Sodium: 0,
-      Potassium: 0,
-      Iron: 0,
-      Sugars: 0,
-      Fat:0,
-      Calcium:0
-    },
-  };
   vegidata = [
     {
       name: 'carot',
@@ -28,8 +15,8 @@ export class ItemSerchComponent implements OnInit {
         Potassium: 200,
         Iron: 0,
         Sugars: 4,
-        Fat:30,
-        Calcium:10
+        Fat: 30,
+        Calcium: 10,
       },
     },
     {
@@ -39,14 +26,33 @@ export class ItemSerchComponent implements OnInit {
         Potassium: 340,
         Iron: 10,
         Sugars: 24,
-        Fat:1,
-        Calcium:10
+        Fat: 1,
+        Calcium: 10,
       },
     },
   ];
-
-  ngOnInit(): void {
+  constructor(private data_access_service: DataAccessService) {
+    this.data_access_service.getJSON().subscribe(data => {
+      console.log(data);
+      this.vegidata=data;
+  });
   }
+  dataavailable = false;
+
+  showingdata = {
+    name: '',
+    nutriants: {
+      Sodium: 0,
+      Potassium: 0,
+      Iron: 0,
+      Sugars: 0,
+      Fat: 0,
+      Calcium: 0,
+    },
+  };
+  
+
+  ngOnInit(): void {}
   onSearchChange(searchValue: any) {
     console.log(searchValue.target.value);
     let serchingvaluesi = searchValue.target.value;
@@ -55,12 +61,12 @@ export class ItemSerchComponent implements OnInit {
       this.vegidata.filter((e) => {
         if (e.name == serchingvaluesi) {
           this.showingdata.name = e.name;
-          this.showingdata.nutriants.Iron=e.nutriants.Iron;
-          this.showingdata.nutriants.Potassium=e.nutriants.Potassium;
-          this.showingdata.nutriants.Sodium=e.nutriants.Sodium;
-          this.showingdata.nutriants.Fat=e.nutriants.Fat;
-          this.showingdata.nutriants.Calcium=e.nutriants.Calcium;
-          this.showingdata.nutriants.Sugars=e.nutriants.Sugars;
+          this.showingdata.nutriants.Iron = e.nutriants.Iron;
+          this.showingdata.nutriants.Potassium = e.nutriants.Potassium;
+          this.showingdata.nutriants.Sodium = e.nutriants.Sodium;
+          this.showingdata.nutriants.Fat = e.nutriants.Fat;
+          this.showingdata.nutriants.Calcium = e.nutriants.Calcium;
+          this.showingdata.nutriants.Sugars = e.nutriants.Sugars;
         }
       });
     } else {

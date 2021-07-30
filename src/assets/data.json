@@ -1,0 +1,35 @@
+ [
+    {
+      "name": "carot",
+      "nutriants": {
+        "Sodium": 50,
+        "Potassium": 200,
+        "Iron": 0,
+        "Sugars": 4,
+        "Fat":30,
+        "Calcium":10
+      }
+    },
+    {
+      "name": "chilli",
+      "nutriants": {
+        "Sodium": 20,
+        "Potassium": 340,
+        "Iron": 10,
+        "Sugars": 24,
+        "Fat":1,
+        "Calcium":10
+      }
+    },
+    {
+      "name": "tomato",
+      "nutriants": {
+        "Sodium": 120,
+        "Potassium": 340,
+        "Iron": 5,
+        "Sugars": 54,
+        "Fat":11,
+        "Calcium":20
+      }
+    }
+  ]
